@@ -33,8 +33,16 @@ def get_resources(db: Session = Depends(get_db)):
 
 
 @router.get("/faq", response_model=List[FAQResponse])
-def get_faq(db: Session = Depends(get_db)):
-    return db.query(FAQ).all()
+def get_faq(
+    search: str | None = None,
+    db: Session = Depends(get_db)
+):
+    query = db.query(FAQ)
+    if search:
+        query = query.filter(
+            FAQ.question.ilike(f"%{search}%")
+        )
+    return query.all()
 
 
 @router.get("/schedule", response_model=List[ScheduleItemResponse])
