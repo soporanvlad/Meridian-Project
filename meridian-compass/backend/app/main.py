@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.database.init_db import init_database
 
 from app.core.config import settings
 
@@ -20,6 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+init_database()
 
 @app.get("/")
 def root():
