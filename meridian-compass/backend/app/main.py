@@ -1,15 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from app.core.config import settings
+
 app = FastAPI(
-    title="Meridian Compass API",
-    description="Backend API for the Meridian onboarding platform.",
-    version="1.0.0"
+    title=settings.app_name,
+    version=settings.version
 )
 
 origins = [
     "http://localhost:5173",
-    "http://localhost:3000",
 ]
 
 app.add_middleware(
@@ -24,13 +24,5 @@ app.add_middleware(
 @app.get("/")
 def root():
     return {
-        "message": "Meridian Compass API is running",
-        "docs": "/docs"
-    }
-
-
-@app.get("/health")
-def health_check():
-    return {
-        "status": "ok"
+        "message": settings.app_name
     }
