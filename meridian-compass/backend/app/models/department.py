@@ -24,3 +24,15 @@ class Department(Base):
     back_populates="department",
     cascade="all, delete"
     )
+
+    resources = relationship(
+    "Resource",
+    back_populates="department",
+    cascade="all, delete"
+    )
+
+    faqs = relationship(
+    "FAQ",
+    back_populates="department",
+    cascade="all, delete"
+    )
