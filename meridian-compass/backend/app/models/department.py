@@ -17,4 +17,10 @@ class Department(Base):
     "Employee",
     back_populates="department",
     cascade="all, delete"
-    )   
+    )
+
+    onboarding_tasks = relationship(
+    "OnboardingTask",
+    back_populates="department",
+    cascade="all, delete"
+    )
