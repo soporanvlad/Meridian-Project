@@ -36,3 +36,9 @@ class Department(Base):
     back_populates="department",
     cascade="all, delete"
     )
+
+    schedule_items = relationship(
+    "ScheduleItem",
+    back_populates="department",
+    cascade="all, delete"
+    )
