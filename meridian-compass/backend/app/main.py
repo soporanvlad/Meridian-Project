@@ -1,20 +1,36 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
-    title="HR Admin Backend",
-    version="0.1.0"
+    title="Meridian Compass API",
+    description="Backend API for the Meridian onboarding platform.",
+    version="1.0.0"
+)
+
+origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
 @app.get("/")
 def root():
     return {
-        "message": "Backend is running"
+        "message": "Meridian Compass API is running",
+        "docs": "/docs"
     }
 
 
 @app.get("/health")
 def health_check():
     return {
-        "status": "healthy"
+        "status": "ok"
     }
