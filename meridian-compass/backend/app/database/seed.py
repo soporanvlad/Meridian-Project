@@ -1,4 +1,6 @@
 from sqlalchemy.orm import Session
+from app.models import User
+from app.core.security import hash_password
 
 from app.models import (
     Department,
@@ -13,6 +15,17 @@ from app.models import (
 def seed_database(db: Session):
     if db.query(Department).first():
         return
+    
+    admin = User(
+        username="admin",
+        email="hr.admin@meridian.test",
+        password=hash_password("admin123"),
+        full_name="Meridian HR Admin",
+        is_admin=True,
+    )
+
+    db.add(admin)
+    db.commit()
 
     engineering = Department(
         name="Engineering",
