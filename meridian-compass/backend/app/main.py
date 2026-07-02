@@ -3,11 +3,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.database.init_db import init_database
 from app.api.routes import auth, departments, employees, onboarding, dashboard, admin
 from app.core.config import settings
+from app.core.exceptions import register_exception_handlers
 
 app = FastAPI(
     title=settings.app_name,
-    version=settings.version
+    version=settings.version,
+    description="Backend API for the Meridian Compass onboarding platform.",
+    contact={
+        "name": "First Name Last Name"
+    }
 )
+
+register_exception_handlers(app)
 
 origins = [
     "http://localhost:5173",
