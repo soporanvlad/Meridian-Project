@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database.init_db import init_database
-from app.api.routes import auth, departments, employees, onboarding, dashboard
+from app.api.routes import auth, departments, employees, onboarding, dashboard, admin
 from app.core.config import settings
 
 app = FastAPI(
@@ -27,6 +27,7 @@ app.include_router(departments.router)
 app.include_router(employees.router)
 app.include_router(onboarding.router)
 app.include_router(dashboard.router)
+app.include_router(admin.router)
 
 @app.get("/")
 def root():
