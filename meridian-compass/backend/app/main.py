@@ -11,7 +11,15 @@ app = FastAPI(
     description="Backend API for the Meridian Compass onboarding platform.",
     contact={
         "name": "First Name Last Name"
-    }
+    },
+    openapi_tags=[
+        {"name": "Authentication", "description": "Authentication endpoints"},
+        {"name": "Dashboard", "description": "Dashboard summary"},
+        {"name": "Departments", "description": "Departments"},
+        {"name": "Employees", "description": "Employees"},
+        {"name": "Onboarding", "description": "Onboarding resources"},
+        {"name": "Admin", "description": "Administration endpoints"}
+    ]
 )
 
 register_exception_handlers(app)
@@ -40,4 +48,13 @@ app.include_router(admin.router)
 def root():
     return {
         "message": settings.app_name
+    }
+
+@app.get("/api")
+def api_info():
+    return {
+        "name": "Meridian Compass API",
+        "version": "1.0.0",
+        "status": "running",
+        "documentation": "/docs"
     }
