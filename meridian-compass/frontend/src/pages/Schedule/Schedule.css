@@ -1,0 +1,88 @@
+.schedule-page{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.timeline-card{
+    display:flex;
+    gap:22px;
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:22px;
+    padding:24px;
+    transition:.2s;
+}
+
+.timeline-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.timeline-day{
+    min-width:90px;
+    height:90px;
+
+    border-radius:18px;
+
+    background:#2563eb;
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+}
+
+.timeline-content{
+    flex:1;
+}
+
+.timeline-content h2{
+    margin-bottom:10px;
+    color:#111827;
+}
+
+.timeline-content p{
+    color:#6b7280;
+    margin-bottom:18px;
+    line-height:1.6;
+}
+
+.timeline-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.timeline-meta span{
+    background:#eff6ff;
+    color:#2563eb;
+
+    padding:8px 12px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+@media(max-width:800px){
+
+.timeline-card{
+    flex-direction:column;
+}
+
+.timeline-day{
+    width:90px;
+}
+
+}
