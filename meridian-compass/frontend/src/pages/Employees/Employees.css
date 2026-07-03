@@ -1,0 +1,159 @@
+.employees-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.employees-header {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+}
+
+.employees-header h1 {
+    font-size: 34px;
+    color: #111827;
+    margin-bottom: 10px;
+}
+
+.employees-header p:last-child {
+    color: #6b7280;
+    max-width: 760px;
+    line-height: 1.6;
+}
+
+.employees-toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+}
+
+.employees-search {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.employees-search input,
+.employees-toolbar select {
+    border: 1px solid #d1d5db;
+    border-radius: 14px;
+    padding: 13px 14px;
+    font-size: 14px;
+    background: white;
+    color: #111827;
+}
+
+.employees-search input {
+    width: 100%;
+}
+
+.employees-search button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    border-radius: 14px;
+    padding: 0 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.employees-search button:hover {
+    background: #1d4ed8;
+}
+
+.employees-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.employee-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+    padding: 24px;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.employee-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+}
+
+.employee-card__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: #111827;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.employee-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.employee-card h2 {
+    font-size: 20px;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.employee-card span {
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.employee-card p {
+    color: #6b7280;
+    line-height: 1.55;
+}
+
+.employee-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.employee-card__meta span {
+    background: #eff6ff;
+    color: #2563eb;
+    border-radius: 999px;
+    padding: 7px 11px;
+    font-size: 13px;
+}
+
+.employee-card a {
+    color: #111827;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.employee-card a:hover {
+    color: #2563eb;
+}
+
+@media (max-width: 1000px) {
+    .employees-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .employees-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
