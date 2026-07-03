@@ -64,3 +64,29 @@
     background: #2563eb;
     color: white;
 }
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 14px;
+        z-index: 10;
+    }
+
+    .sidebar__brand {
+        margin-bottom: 14px;
+    }
+
+    .sidebar__nav {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+    }
+
+    .sidebar__link {
+        white-space: nowrap;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
