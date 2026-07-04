@@ -18,6 +18,7 @@ function getResourceIcon(title) {
 function Resources() {
     const [resources, setResources] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedResource, setSelectedResource] = useState(null);
 
     useEffect(() => {
         async function loadResources() {
@@ -62,7 +63,7 @@ function Resources() {
                             onClick={(event) => {
                                 if (!resource.url || resource.url.includes("example.com")) {
                                     event.preventDefault();
-                                    alert(`${resource.title}\n\n${resource.description}`);
+                                    setSelectedResource(resource);
                                 }
                             }}
                         >
@@ -71,6 +72,34 @@ function Resources() {
                     </div>
                 ))}
             </div>
+
+            {selectedResource && (
+                <div className="resource-modal">
+                    <div className="resource-modal__content">
+                        <button
+                            className="resource-modal__close"
+                            onClick={() => setSelectedResource(null)}
+                        >
+                            ×
+                        </button>
+
+                        <div className="resource-card__icon">
+                            {getResourceIcon(selectedResource.title)}
+                        </div>
+
+                        <h2>{selectedResource.title}</h2>
+
+                        <p>{selectedResource.description}</p>
+
+                        <button
+                            className="resource-modal__button"
+                            onClick={() => setSelectedResource(null)}
+                        >
+                            Got it
+                        </button>
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
